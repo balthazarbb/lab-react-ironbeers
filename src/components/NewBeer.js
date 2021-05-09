@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import {Link, Route} from 'react-router-dom'
 
 class NewBeer extends Component {
     render() {
         return (
             <div>
+                <Link to={'/'}>Home</Link>
                 <h1>create new Beer</h1>
             </div>
         )

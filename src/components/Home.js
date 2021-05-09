@@ -4,11 +4,23 @@ import {Link} from 'react-router-dom'
 class Home extends Component {
     render() {
         return (
+            <div> 
+            <ul>
             <div>
-                <Link to='/beers'>All Beers</Link>
-                <Link to='random-beer'>Random Beer</Link>
-                <Link to='new-beer'>Add a new beer</Link>
+                IRON BEERS
             </div>
+            <span>
+                <Link to={'/beers'}>All Beers</Link>
+            </span>    
+            <span>
+                <Link to={'random-beer'}>Random Beer</Link>
+            </span>
+            <span>
+                <Link to={'new-beer'}>Add a new beer</Link>
+            </span>  
+            </ul>  
+            </div>
+            
         )
     }
 }
