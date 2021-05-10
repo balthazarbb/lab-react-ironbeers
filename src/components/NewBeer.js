@@ -6,7 +6,7 @@ class NewBeer extends Component {
         return (
             <div>
                 <Link to={'/'}>Home</Link>
-                <h1>create new Beer</h1>
+                <h1>Create new Beer</h1>
             </div>
         )
     }

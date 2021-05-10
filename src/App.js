@@ -12,32 +12,34 @@ import RandomBeer from './components/RandomBeer';
 
 class App extends Component {
 
-  stat={
-    allbeer: []
-  }
-
-  componentDidMount=()=>{
-    axios.get('https://ih-beers-api2.herokuapp.com/beers')
-    .then((response) => {
-      this.setState({allbeer:response.data})
-    })
-    .catch((err) => {
-      
-    });
-  }
+  
+    state={
+        allbeer: []
+      }
+    
+      componentDidMount=()=>{
+        axios.get('https://ih-beers-api2.herokuapp.com/beers')
+        .then((response) => {
+          this.setState({allbeer:response.data})
+        })
+        .catch((err) => {
+          
+        });
+      } 
 
   render() {
+    const{allbeer}= this.state
     return (
       <div>
         
           <Route exact path='/' component={Home} />
-          <Route exact path='/beers' component={Beers} />
+          <Route exact path='/beers' render={()=>{
+            return <Beers allbeer={allbeer}/>
+          }} />
           <Route exact path='/new-beer' component={NewBeer} />
           <Route exact path='/random-beer' component={RandomBeer} />
         
 
-
-        
       </div>
     )
   }
