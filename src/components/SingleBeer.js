@@ -1,16 +1,16 @@
-import Axios from 'axios';
-import React from 'react';
+import React, { Component } from 'react'
 import axios from 'axios';
 
-class RandomBeer extends React.Component {
-  
+
+export default class SingleBeer extends Component {
+
   state = {
-    randomBeer: {},
+    singleBeer: {},
     ready: false
   }
 
   componentDidMount() {
-    axios.get('https://ih-beers-api2.herokuapp.com/beers/random')
+    axios.get(`https://ih-beers-api2.herokuapp.com/beers/${this.props.match.params.id}`)
     .then(response => {
       this.setState({randomBeer: response.data, ready:true })
     })
@@ -33,5 +33,3 @@ class RandomBeer extends React.Component {
     } else return <div>Loading...</div>;
   }
 }
-
-export default RandomBeer;
